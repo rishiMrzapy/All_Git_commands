@@ -1,0 +1,970 @@
+mrzapy@mrzapy-HP-Laptop-15-bs0xx:~/Desktop/All_About_GIT$ code .
+mrzapy@mrzapy-HP-Laptop-15-bs0xx:~/Desktop/All_About_GIT$ sudo su
+[sudo] password for mrzapy: 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git init
+Reinitialized existing Git repository in /home/mrzapy/Desktop/All_About_GIT/.git/
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    about.html
+	deleted:    file.txt
+	deleted:    news.html
+	deleted:    vnu.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git config --global user.name
+mr zapy
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# ls -lart
+total 12
+drwxr-xr-x 31 mrzapy mrzapy 4096 Jan  8 21:19 ..
+drwxrwxr-x  3 mrzapy mrzapy 4096 Jan  8 23:10 .
+drwxr-xr-x  8 root   root   4096 Jan  9 09:56 .git
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# touch about.html
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# touch news.html
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   about.html
+	deleted:    file.txt
+	modified:   news.html
+	deleted:    vnu.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git add about.html
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   about.html
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    file.txt
+	modified:   news.html
+	deleted:    vnu.html
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git add -a
+error: unknown switch `a'
+usage: git add [<options>] [--] <pathspec>...
+
+    -n, --dry-run         dry run
+    -v, --verbose         be verbose
+
+    -i, --interactive     interactive picking
+    -p, --patch           select hunks interactively
+    -e, --edit            edit current diff and apply
+    -f, --force           allow adding otherwise ignored files
+    -u, --update          update tracked files
+    --renormalize         renormalize EOL of tracked files (implies -u)
+    -N, --intent-to-add   record only the fact that the path will be added later
+    -A, --all             add changes from all tracked and untracked files
+    --ignore-removal      ignore paths removed in the working tree (same as --no-all)
+    --refresh             don't add, only refresh the index
+    --ignore-errors       just skip files which cannot be added because of errors
+    --ignore-missing      check if - even missing - files are ignored in dry run
+    --sparse              allow updating entries outside of the sparse-checkout cone
+    --chmod (+|-)x        override the executable bit of the listed files
+    --pathspec-from-file <file>
+                          read pathspec from file
+    --pathspec-file-nul   with --pathspec-from-file, pathspec elements are separated with NUL character
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git add -A
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   about.html
+	deleted:    file.txt
+	modified:   news.html
+	deleted:    vnu.html
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git commit -m "first commit"
+[master b3ad31f] first commit
+ 4 files changed, 5 insertions(+), 17 deletions(-)
+ delete mode 100644 file.txt
+ delete mode 100644 vnu.html
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git checkout -f
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+nothing to commit, working tree clean
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git commit -m "first commit"
+On branch master
+nothing to commit, working tree clean
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git add -A
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+nothing to commit, working tree clean
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git commit -m "first commit"
+On branch master
+nothing to commit, working tree clean
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git add .
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+nothing to commit, working tree clean
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git log
+commit b3ad31f8729c743cc644d4b0cab036405c76642a (HEAD -> master)
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 10:28:13 2023 +0530
+
+    first commit
+
+commit 9b5e61378a03136bd637d4689a41dde32c9d9d56
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Sun Jan 8 22:59:42 2023 +0530
+
+    the first commit
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git log -p-1
+fatal: unrecognized argument: -p-1
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git log-p-1
+git: 'log-p-1' is not a git command. See 'git --help'.
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git log -p -1
+commit b3ad31f8729c743cc644d4b0cab036405c76642a (HEAD -> master)
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 10:28:13 2023 +0530
+
+    first commit
+
+diff --git a/about.html b/about.html
+index b3a2a83..fce607d 100644
+--- a/about.html
++++ b/about.html
+@@ -4,9 +4,9 @@
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>About Page</title>
++    <title>about page</title>
+ </head>
+ <body>
+-    <h1> abot page </h1>
++    <h1>this is about page </h1>
+ </body>
+ </html>
+\ No newline at end of file
+diff --git a/file.txt b/file.txt
+deleted file mode 100644
+index d04c8cd..0000000
+--- a/file.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-Di e nadan tujhe huaa kya h
+\ No newline at end of file
+diff --git a/news.html b/news.html
+index 3e35f25..57e7403 100644
+--- a/news.html
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# touch contact.html
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	contact.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git add .
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   contact.html
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   contact.html
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   contact.html
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git add .
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   contact.html
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git commit -m "Adding the new feature"
+[master 6d80ef4] Adding the new feature
+ 1 file changed, 14 insertions(+)
+ create mode 100644 contact.html
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+nothing to commit, working tree clean
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   about.html
+	modified:   contact.html
+	modified:   news.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git commit -a -m "Sidhe commit krna bina staging area m jaaye"
+[master d5a8fa5] Sidhe commit krna bina staging area m jaaye
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+nothing to commit, working tree clean
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git log
+commit d5a8fa51eec234218e5f2d6fa0f29c431099f014 (HEAD -> master)
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 11:42:59 2023 +0530
+
+    Sidhe commit krna bina staging area m jaaye
+
+commit 6d80ef438bbedaabe6c0f4af489e112e15d8daa3
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 11:39:06 2023 +0530
+
+    Adding the new feature
+
+commit b3ad31f8729c743cc644d4b0cab036405c76642a
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 10:28:13 2023 +0530
+
+    first commit
+
+commit 9b5e61378a03136bd637d4689a41dde32c9d9d56
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Sun Jan 8 22:59:42 2023 +0530
+
+    the first commit
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git log -p -2
+commit d5a8fa51eec234218e5f2d6fa0f29c431099f014 (HEAD -> master)
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 11:42:59 2023 +0530
+
+    Sidhe commit krna bina staging area m jaaye
+
+diff --git a/about.html b/about.html
+index fce607d..790bdc3 100644
+--- a/about.html
++++ b/about.html
+@@ -7,6 +7,6 @@
+     <title>about page</title>
+ </head>
+ <body>
+-    <h1>this is about page </h1>
++    <h1>this is abousdfghjklt page </h1>
+ </body>
+ </html>
+\ No newline at end of file
+diff --git a/contact.html b/contact.html
+index 68abc7d..12e5ab1 100644
+--- a/contact.html
++++ b/contact.html
+@@ -9,6 +9,6 @@
+ </head>
+ <body>
+     <h1>Contact page</h1>
+-    <h2>h2 to tag</h2>
++    <h2>h2 to tagfffffff</h2>
+ </body>
+ </html>
+\ No newline at end of file
+diff --git a/news.html b/news.html
+index 57e7403..70eeb22 100644
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# ls
+about.html  contact.html  news.html
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# touch delete.html
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	delete.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git add .
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   delete.html
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git rm --cached delete.html
+rm 'delete.html'
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	delete.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git add .
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   delete.html
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git restore --staged delete.html
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	delete.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git add .
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git commit -a -m "stage se unstage kr k dekhi thi fr comit kri"
+[master 96ee2e8] stage se unstage kr k dekhi thi fr comit kri
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 delete.html
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git log
+commit 96ee2e863b366bca1698cca6aa918591c68ecac2 (HEAD -> master)
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 11:52:15 2023 +0530
+
+    stage se unstage kr k dekhi thi fr comit kri
+
+commit d5a8fa51eec234218e5f2d6fa0f29c431099f014
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 11:42:59 2023 +0530
+
+    Sidhe commit krna bina staging area m jaaye
+
+commit 6d80ef438bbedaabe6c0f4af489e112e15d8daa3
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 11:39:06 2023 +0530
+
+    Adding the new feature
+
+commit b3ad31f8729c743cc644d4b0cab036405c76642a
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 10:28:13 2023 +0530
+
+    first commit
+
+commit 9b5e61378a03136bd637d4689a41dde32c9d9d56
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Sun Jan 8 22:59:42 2023 +0530
+
+    the first commit
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git show 96ee2e863b
+commit 96ee2e863b366bca1698cca6aa918591c68ecac2 (HEAD -> master)
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 11:52:15 2023 +0530
+
+    stage se unstage kr k dekhi thi fr comit kri
+
+diff --git a/delete.html b/delete.html
+new file mode 100644
+index 0000000..e69de29
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git rm -f delete.html
+rm 'delete.html'
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	deleted:    delete.html
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status -s
+D  delete.html
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# touch .gitignore
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# touch mylog.log
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	deleted:    delete.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git add .
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   .gitignore
+	deleted:    delete.html
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   .gitignore
+	deleted:    delete.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	mylogs/
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   .gitignore
+	deleted:    delete.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	mylogs/
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   .gitignore
+	deleted:    delete.html
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .gitignore
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	mylog.log
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git add .
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   .gitignore
+	deleted:    delete.html
+	new file:   mylog.log
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git branch
+* master
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git branch updatecode
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git branch
+* master
+  updatecode
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git checkout updatecode
+A	.gitignore
+D	delete.html
+A	mylog.log
+Switched to branch 'updatecode'
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch updatecode
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   .gitignore
+	deleted:    delete.html
+	new file:   mylog.log
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   about.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	comment.html
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git add .
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git commit -a -m "branch m update file"
+[updatecode ee8e21e] branch m update file
+ 5 files changed, 18 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 comment.html
+ delete mode 100644 delete.html
+ create mode 100644 mylog.log
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch updatecode
+nothing to commit, working tree clean
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git checkout master
+Switched to branch 'master'
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git checkout updatecode
+Switched to branch 'updatecode'
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git log
+commit ee8e21e88a418bd5937d823535016d82915b82a7 (HEAD -> updatecode)
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 12:21:58 2023 +0530
+
+    branch m update file
+
+commit 96ee2e863b366bca1698cca6aa918591c68ecac2 (master)
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 11:52:15 2023 +0530
+
+    stage se unstage kr k dekhi thi fr comit kri
+
+commit d5a8fa51eec234218e5f2d6fa0f29c431099f014
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 11:42:59 2023 +0530
+
+    Sidhe commit krna bina staging area m jaaye
+
+commit 6d80ef438bbedaabe6c0f4af489e112e15d8daa3
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 11:39:06 2023 +0530
+
+    Adding the new feature
+
+commit b3ad31f8729c743cc644d4b0cab036405c76642a
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 10:28:13 2023 +0530
+
+    first commit
+
+commit 9b5e61378a03136bd637d4689a41dde32c9d9d56
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Sun Jan 8 22:59:42 2023 +0530
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git branch
+  master
+* updatecode
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git checkout master
+Switched to branch 'master'
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git merge updatecode
+Updating 96ee2e8..ee8e21e
+Fast-forward
+ .gitignore   |  1 +
+ about.html   |  2 ++
+ comment.html | 12 ++++++++++++
+ delete.html  |  0
+ mylog.log    |  3 +++
+ 5 files changed, 18 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 comment.html
+ delete mode 100644 delete.html
+ create mode 100644 mylog.log
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+nothing to commit, working tree clean
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git branch node
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git branch
+* master
+  node
+  updatecode
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git branch -b  nodejs
+error: unknown switch `b'
+usage: git branch [<options>] [-r | -a] [--merged] [--no-merged]
+   or: git branch [<options>] [-l] [-f] <branch-name> [<start-point>]
+   or: git branch [<options>] [-r] (-d | -D) <branch-name>...
+   or: git branch [<options>] (-m | -M) [<old-branch>] <new-branch>
+   or: git branch [<options>] (-c | -C) [<old-branch>] <new-branch>
+   or: git branch [<options>] [-r | -a] [--points-at]
+   or: git branch [<options>] [-r | -a] [--format]
+
+Generic options
+    -v, --verbose         show hash and subject, give twice for upstream branch
+    -q, --quiet           suppress informational messages
+    -t, --track           set up tracking mode (see git-pull(1))
+    -u, --set-upstream-to <upstream>
+                          change the upstream info
+    --unset-upstream      unset the upstream info
+    --color[=<when>]      use colored output
+    -r, --remotes         act on remote-tracking branches
+    --contains <commit>   print only branches that contain the commit
+    --no-contains <commit>
+                          print only branches that don't contain the commit
+    --abbrev[=<n>]        use <n> digits to display object names
+
+Specific git-branch actions:
+    -a, --all             list both remote-tracking and local branches
+    -d, --delete          delete fully merged branch
+    -D                    delete branch (even if not merged)
+    -m, --move            move/rename a branch and its reflog
+    -M                    move/rename a branch, even if target exists
+    -c, --copy            copy a branch and its reflog
+    -C                    copy a branch, even if target exists
+    -l, --list            list branch names
+    --show-current        show current branch name
+    --create-reflog       create the branch's reflog
+    --edit-description    edit the description for the branch
+    -f, --force           force creation, move/rename, deletion
+    --merged <commit>     print only branches that are merged
+    --no-merged <commit>  print only branches that are not merged
+    --column[=<style>]    list branches in columns
+    --sort <key>          field name to sort on
+    --points-at <object>  print only branches of the object
+    -i, --ignore-case     sorting and filtering are case insensitive
+    --format <format>     format to use for the output
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git checkout -b nodejs
+Switched to a new branch 'nodejs'
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# touch node.js
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git add .
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch nodejs
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   node.js
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git commit -m "node file add in branch"
+[nodejs 5465387] node file add in branch
+ 1 file changed, 2 insertions(+)
+ create mode 100644 node.js
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git checkout  master
+Switched to branch 'master'
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git checkout  nodejs
+Switched to branch 'nodejs'
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git branch
+  master
+  node
+* nodejs
+  updatecode
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git checkout master
+Switched to branch 'master'
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git merge nodejs
+Updating ee8e21e..5465387
+Fast-forward
+ node.js | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 node.js
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git add .
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git commit -m "All file done ready to upload"
+On branch master
+nothing to commit, working tree clean
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+nothing to commit, working tree clean
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git remote add origin https://github.com/rishiMrzapy/All-about-git.git
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git remote
+origin
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git git remote -v
+git: 'git' is not a git command. See 'git --help'.
+
+The most similar command is
+	init
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT#  git remote -v
+origin	https://github.com/rishiMrzapy/All-about-git.git (fetch)
+origin	https://github.com/rishiMrzapy/All-about-git.git (push)
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git push origin master
+Username for 'https://github.com': rishiMrzapy
+Password for 'https://rishiMrzapy@github.com': 
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/rishiMrzapy/All-about-git.git/'
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git push origin master
+Username for 'https://github.com': rishiMrzapy
+Password for 'https://rishiMrzapy@github.com': 
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/rishiMrzapy/All-about-git.git/'
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git push origin master
+Username for 'https://github.com': rishiMrzapy
+Password for 'https://rishiMrzapy@github.com': 
+Enumerating objects: 30, done.
+Counting objects: 100% (30/30), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (26/26), done.
+Writing objects: 100% (30/30), 2.57 KiB | 329.00 KiB/s, done.
+Total 30 (delta 13), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (13/13), done.
+remote: 
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/rishiMrzapy/All-about-git/pull/new/master
+remote: 
+To https://github.com/rishiMrzapy/All-about-git.git
+ * [new branch]      master -> master
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git remote add origin https://github.com/rishiMrzapy/All-about-git.git
+error: remote origin already exists.
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git push origin master
+Username for 'https://github.com': rishiMrzapy
+Password for 'https://rishiMrzapy@github.com': 
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/rishiMrzapy/All-about-git.git/'
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+nothing to commit, working tree clean
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git add .
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+nothing to commit, working tree clean
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git commit -m "All cheat sheet file done ready to upload"
+On branch master
+nothing to commit, working tree clean
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch master
+nothing to commit, working tree clean
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git branch -M master
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git remote add origin https://github.com/rishiMrzapy/All-about-git.git
+error: remote origin already exists.
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/rishiMrzapy/All-about-git.git'
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/rishiMrzapy/All-about-git.git'
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git push -u origin master
+Username for 'https://github.com': rishiMrzapy
+Password for 'https://rishiMrzapy@github.com': 
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/rishiMrzapy/All-about-git.git/'
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git push -u origin master
+Username for 'https://github.com': rishiMrzapy
+Password for 'https://rishiMrzapy@github.com': 
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/rishiMrzapy/All-about-git.git/'
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# echo "# All-about-git" >> README.md
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git init
+Reinitialized existing Git repository in /home/mrzapy/Desktop/All_About_GIT/.git/
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git commit -m "All commit"
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git branch -M main
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git remote add origin https://github.com/rishiMrzapy/All-about-git.git
+error: remote origin already exists.
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git remote add origin https://github.com/rishiMrzapy/All-about-git.git
+error: remote origin already exists.
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git branch -M main
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git push -u origin main
+Username for 'https://github.com': rishiMrzapy
+Password for 'https://rishiMrzapy@github.com': 
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/rishiMrzapy/All-about-git.git/'
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git push -u origin main
+Username for 'https://github.com': rishiMrzapy
+Password for 'https://rishiMrzapy@github.com': 
+Enumerating objects: 30, done.
+Counting objects: 100% (30/30), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (26/26), done.
+Writing objects: 100% (30/30), 2.57 KiB | 527.00 KiB/s, done.
+Total 30 (delta 13), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (13/13), done.
+To https://github.com/rishiMrzapy/All-about-git.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git remote add origin https://github.com/rishiMrzapy/githubtraining.git
+error: remote origin already exists.
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git remote add origin https://github.com/rishiMrzapy/day1.git
+error: remote origin already exists.
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           [--super-prefix=<path>] [--config-env=<name>=<envvar>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone     Clone a repository into a new directory
+   init      Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add       Add file contents to the index
+   mv        Move or rename a file, a directory, or a symlink
+   restore   Restore working tree files
+   rm        Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect    Use binary search to find the commit that introduced a bug
+   diff      Show changes between commits, commit and working tree, etc
+   grep      Print lines matching a pattern
+   log       Show commit logs
+   show      Show various types of objects
+   status    Show the working tree status
+
+grow, mark and tweak your common history
+   branch    List, create, or delete branches
+   commit    Record changes to the repository
+   merge     Join two or more development histories together
+   rebase    Reapply commits on top of another base tip
+   reset     Reset current HEAD to the specified state
+   switch    Switch branches
+   tag       Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch     Download objects and refs from another repository
+   pull      Fetch from and integrate with another repository or a local branch
+   push      Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+See 'git help git' for an overview of the system.
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git pull origin master
+fatal: couldn't find remote ref master
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git pull origin main
+From https://github.com/rishiMrzapy/All-about-git
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git add .
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   README.md
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git log
+commit 546538785d9705aac77b7e05cb31f7ba1ec45011 (HEAD -> main, origin/master, origin/main, nodejs)
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 12:38:53 2023 +0530
+
+    node file add in branch
+
+commit ee8e21e88a418bd5937d823535016d82915b82a7 (updatecode, node)
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 12:21:58 2023 +0530
+
+    branch m update file
+
+commit 96ee2e863b366bca1698cca6aa918591c68ecac2
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 11:52:15 2023 +0530
+
+    stage se unstage kr k dekhi thi fr comit kri
+
+commit d5a8fa51eec234218e5f2d6fa0f29c431099f014
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 11:42:59 2023 +0530
+
+    Sidhe commit krna bina staging area m jaaye
+
+commit 6d80ef438bbedaabe6c0f4af489e112e15d8daa3
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 11:39:06 2023 +0530
+
+    Adding the new feature
+
+commit b3ad31f8729c743cc644d4b0cab036405c76642a
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 10:28:13 2023 +0530
+
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# git show 546538785d9705
+commit 546538785d9705aac77b7e05cb31f7ba1ec45011 (HEAD -> main, origin/master, origin/main, nodejs)
+Author: mr zapy <zapyviraj@gmail.com>
+Date:   Mon Jan 9 12:38:53 2023 +0530
+
+    node file add in branch
+
+diff --git a/node.js b/node.js
+new file mode 100644
+index 0000000..1d75b73
+--- /dev/null
++++ b/node.js
+@@ -0,0 +1,2 @@
++console.log("server side ");
++console.warn("git hub traiming");
+\ No newline at end of file
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# cat  about.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about page</title>
+</head>
+<body>
+    <h1>this is abousdfghjklt page </h1>
+    <h3>ghjk</h3>
+    <h4>dfghj</h4>
+</body>
+</html>root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# cat readme.md
+cat: readme.md: No such file or directory
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# cat RAEDME.me
+cat: RAEDME.me: No such file or directory
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# cat nodejs
+cat: nodejs: No such file or directory
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# cat nodejs.js
+cat: nodejs.js: No such file or directory
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# cat node
+cat: node: No such file or directory
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# cat node.js
+console.log("server side ");
+root@mrzapy-HP-Laptop-15-bs0xx:/home/mrzapy/Desktop/All_About_GIT# 
+
